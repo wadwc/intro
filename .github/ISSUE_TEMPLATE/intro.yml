@@ -2,14 +2,14 @@ name: Intro
 description: Introduce myself
 title: "[Intro]: "
 labels: []
-projects: ["buildstuffdemo/1"]
+projects: ["wadwc/1"]
 assignees: []
 body:
   - type: markdown
     attributes:
       value: |
         # :wave: Welcome to the workshop
-        <img width="553" alt="image" src="https://github.com/buildstuffdemo/intro/assets/10250297/49e468a8-712a-40a0-852b-9295f76acf87">
+        <img width="553" alt="image" src="https://github.com/wadwc/intro/assets/10250297/49e468a8-712a-40a0-852b-9295f76acf87">
   - type: textarea
     id: about-me
     attributes:
