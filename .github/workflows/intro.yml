@@ -1,0 +1,78 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Intro
+
+# Controls when the workflow will run
+on:
+  issues:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "provision"
+  provision:
+    permissions:
+      issues: write
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          owner: ${{ secrets.CONTROLLER_REPO_OWNER }}
+          repositories: ${{ secrets.CONTROLLER_REPO }}
+    
+      - name: Compress Body
+        id: replace-newlines
+        run: |
+          echo "BODY=$(echo "${{ github.event.issue.body }}" | tr '\r\n' ' ')" >> "$GITHUB_ENV"   
+
+      - name: Introduce Member
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          repository: ${{ secrets.CONTROLLER_REPO_OWNER }}/${{ secrets.CONTROLLER_REPO }}
+          event-type: intro
+          client-payload: |-
+            {
+              "repo": {
+                "name": "${{ github.repository }}",
+                "sender": "${{ github.actor }}",
+                "owner": "${{ github.event.issue.user.login }}",
+                "title": "${{ github.event.issue.title }}",
+                "body": "${{ env.BODY }}"
+              }
+            }
+
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
+        env:
+          USER: ${{ github.event.issue.user.login }}
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          reactions: 'heart'
+          body: |
+            👋🏽 @${{ env.USER }} 
+
+            1. [Go to your profile and accept the invitation to join the buildstuffdemo org](https://github.com/orgs/buildstuffdemo/invitation)
+            > [!NOTE]
+            > it may take a minute or two for the invitation to show up. If you don't see it, please refresh the [page](https://github.com/orgs/buildstuffdemo/invitation).
+            > :zap: Pro Tip: You can open the invitation in a new tab so you dont lose your place here. 
+
+            [Click on Invitation to join Org](https://github.com/orgs/buildstuffdemo/invitation)
+            <img width="553" alt="image" href="https://github.com/orgs/buildstuffdemo/invitation" src="https://github.com/buildstuffdemo/intro/assets/29655435/a04005d4-99bd-491f-bbc2-628931064567"><br>
+            <img width="551" alt="image" href="https://github.com/orgs/buildstuffdemo/invitation" src="https://github.com/buildstuffdemo/intro/assets/10250297/24736d71-c123-4d73-8802-b4c23c1701ef"><br>
+            <img width="288" alt="image" href="https://github.com/orgs/buildstuffdemo/invitation" src="https://github.com/buildstuffdemo/intro/assets/10250297/7383d2d3-06fa-474b-8ef9-3eae269b2f84">
+
+            2. [Create a new repository in buildstuffdemo org](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo)
+
+            [![button](https://dabuttonfactory.com/button.png?t=ClickMe&f=Roboto-Bold&ts=26&tc=fff&tshs=1&tshc=000&hp=45&vp=20&c=11&bgt=unicolored&bgc=15d798)](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo)
+            
+            # See screenshot below and name the repository with your name
+            [![scteenshot](https://user-images.githubusercontent.com/10250297/278444191-e75cfbe0-4018-432f-9685-8f8a2fcfacda.png)](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo)
+
+            3. Next Step will be in the [new repository you just created](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo/).

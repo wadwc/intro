@@ -1,0 +1,36 @@
+name: Intro
+description: Introduce myself
+title: "[Intro]: "
+labels: []
+projects: ["buildstuffdemo/1"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # :wave: Welcome to the workshop
+        <img width="553" alt="image" src="https://github.com/buildstuffdemo/intro/assets/10250297/49e468a8-712a-40a0-852b-9295f76acf87">
+  - type: textarea
+    id: about-me
+    attributes:
+      label: attendee
+      description: Say hello to your network.
+      placeholder: Tell us as much or as little about yourself
+      value: |
+        everything Optional: All, Any or None
+        - About me:
+        - Name:
+        - City:
+        - Role:
+        - Connect: LinkedIn 
+        - Social:
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our Code of Conduct.
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
