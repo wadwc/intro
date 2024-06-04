@@ -9,7 +9,7 @@ body:
     attributes:
       value: |
         # :wave: Welcome to the workshop
-        <img width="553" alt="image" src="https://github.com/wadwc/intro/assets/10250297/49e468a8-712a-40a0-852b-9295f76acf87">
+        <img width="553" alt="image" src="https://github.com/wadwc/.github/assets/10250297/788906af-c7bc-4e3d-9f0f-933469c5e965">
   - type: textarea
     id: about-me
     attributes:
