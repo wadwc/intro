@@ -64,8 +64,8 @@ jobs:
             > :zap: Pro Tip: You can open the invitation in a new tab so you dont lose your place here. 
 
             [Click on Invitation to join Org](https://github.com/orgs/wadwc/invitation)
-            <img width="553" alt="image" href="https://github.com/orgs/wadwc/invitation" src="https://github.com/wadwc/intro/assets/29655435/a04005d4-99bd-491f-bbc2-628931064567"><br>
-            <img width="551" alt="image" href="https://github.com/orgs/wadwc/invitation" src="https://github.com/wadwc/intro/assets/10250297/24736d71-c123-4d73-8802-b4c23c1701ef"><br>
+            <img width="553" alt="image" src="https://github.com/wadwc/intro/assets/10250297/9021b3dd-bd40-4c3e-a83b-2934a36e188a" href="https://github.com/orgs/wadwc/invitation"><br>
+            <img width="551" alt="image" src="https://github.com/wadwc/intro/assets/10250297/66d84f20-9f80-496b-aacd-3891b81d1fb2" href="https://github.com/orgs/wadwc/invitation"><br>
             <img width="288" alt="image" href="https://github.com/orgs/wadwc/invitation" src="https://github.com/wadwc/intro/assets/10250297/7383d2d3-06fa-474b-8ef9-3eae269b2f84">
 
             2. [Create a new repository in wadwc org](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo)
