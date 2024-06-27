@@ -75,4 +75,4 @@ jobs:
             # See screenshot below and name the repository with your name
             [![scteenshot](https://github.com/user-attachments/assets/d546910c-df12-4982-9f9a-4a8ba783a62f)](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo)
 
-            3. Next Step will be in the [new repository you just created](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo/).
+            3. Next Step will be in the [new repository you just created](https://github.com/wadwc/${{ env.USER }}-demo).
