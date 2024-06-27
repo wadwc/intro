@@ -73,6 +73,6 @@ jobs:
             [![button](https://dabuttonfactory.com/button.png?t=ClickMe&f=Roboto-Bold&ts=26&tc=fff&tshs=1&tshc=000&hp=45&vp=20&c=11&bgt=unicolored&bgc=15d798)](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo)
             
             # See screenshot below and name the repository with your name
-            [![scteenshot](https://user-images.githubusercontent.com/10250297/278444191-e75cfbe0-4018-432f-9685-8f8a2fcfacda.png)](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo)
+            [![scteenshot](https://github.com/user-attachments/assets/d546910c-df12-4982-9f9a-4a8ba783a62f)](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo)
 
             3. Next Step will be in the [new repository you just created](${{ secrets.TEMPLATE }}&name=${{ env.USER }}-demo/).
