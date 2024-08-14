@@ -18,6 +18,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: display env and github payload
+        env:
+          GITHUB_EVENT: ${{ toJson(github) }}
+        run: |
+          echo "Environment variables:"
+          env
+          echo "GitHub event payload:"
+          cat $GITHUB_EVENT_PATH
       - uses: actions/create-github-app-token@v1
         id: app-token
         with:
